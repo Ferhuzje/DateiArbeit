@@ -15,9 +15,25 @@ public class Program {
 	public static void main(String[] args) {
 		textDateiSchreiben();
 		binaerDateiSchreiben();		
+		binaerDateiLesen();
 	}
 	
 	
+	private static void binaerDateiLesen() {
+	
+		try {
+			RandomAccessFile file = new RandomAccessFile("binaerdatei.bin", "r");
+			System.out.println( file.readInt() );
+			System.out.println( file.readDouble());
+			System.out.println( file.readBoolean());
+			System.out.println( file.readUTF() ) ;
+			file.close();
+		}
+		catch (IOException e) {
+			System.out.println("Kann Datei nicht lesen");
+		}
+	}
+		
 	private static void binaerDateiSchreiben() {
 		int i = 100;
 		double d = 99.99;
@@ -36,7 +52,6 @@ public class Program {
 		catch (IOException e) {
 			System.out.println("Datei - Fehler");
 		}
-		
 	}
 	
 	
