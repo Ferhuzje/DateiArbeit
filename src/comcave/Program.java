@@ -11,11 +11,9 @@ public class Program {
 
 	public static void main(String[] args) {
 		textDateiSchreiben();
-
 	}
 	
 	private static void textDateiSchreiben() {
-		
 		
 		try {
 			int[] arrayTest = {1,2,3};
@@ -26,8 +24,7 @@ public class Program {
 		catch(Exception e) {
 			System.out.println(e.getMessage());
 			System.out.println("exception");
-			
-			
+
 		}
 //		catch(ArrayIndexOutOfBoundsException e1) {
 //			System.out.println("Fehler");
@@ -39,9 +36,7 @@ public class Program {
 //		}
 
 	
-	
 		try {
-			
 			// Datenstrom erzeugen, Datei öffnen
 			FileWriter fw = new FileWriter("datei.txt"); 
 			BufferedWriter bw = new BufferedWriter(fw);
@@ -56,8 +51,5 @@ public class Program {
 			System.out.println("Daten konnten nicht gespeichert werden");
 		}
 			
-		}
-		
-	
-
+	}
 }
