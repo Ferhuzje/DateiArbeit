@@ -3,9 +3,11 @@ package comcave;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.io.RandomAccessFile;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.RandomAccessFile;
 
@@ -16,8 +18,23 @@ public class Program {
 		textDateiSchreiben();
 		binaerDateiSchreiben();		
 		binaerDateiLesen();
+		objekteSchreiben();
 	}
 	
+	
+	private static void objekteSchreiben() {
+		//Serialisierung
+		Artikel artikel = new Artikel("IPhone", 1200);
+		
+		try {
+			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("artikel.com"));
+			oos.writeObject(artikel);
+			oos.close();
+		} catch (IOException e) {
+			System.out.println("Datei Fehler");			
+		}
+		
+	}
 	
 	private static void binaerDateiLesen() {
 	
