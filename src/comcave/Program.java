@@ -37,9 +37,10 @@ public class Program {
 		File file = new File("verzeichnis\\dateiname.txt");
 		File dir = new File("verzeichnis");
 		
-		 	try {
-	 		if(dir.mkdir()) {
-	 			file.createNewFile();
+	 	try {
+		 		if(dir.mkdir()) {
+		 			file.createNewFile();
+		 			System.out.println("file erstellt");
 	 		}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -48,6 +49,13 @@ public class Program {
 		System.out.println("existiert ja/nein: " + file.exists());
 		System.out.println("ist das eine Datei? " + file.isFile());
 		System.out.println("ist ein Verzeichnis? " + dir.isDirectory());
+		
+		
+		// aktuelles Verzeichnis ermitteln
+		File datei = new File("virtual.txt");
+		System.out.println(datei.getAbsolutePath());
+		File datei2 = new File(datei.getAbsolutePath());
+		System.out.println( datei2.getParent() );
 	}
 	
 	
