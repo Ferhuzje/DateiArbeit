@@ -6,10 +6,12 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.RandomAccessFile;
 
@@ -18,6 +20,7 @@ public class Program {
 
 	public static void main(String[] args) {
 		textDateiSchreiben();
+		textDateiLesen();
 		binaerDateiSchreiben();		
 		binaerDateiLesen();
 		objekteSchreiben();
@@ -26,7 +29,14 @@ public class Program {
 	}
 	
 	
-	
+	private static void csvLesen() {
+		try { 
+			BufferedReader br = new BufferedReader(new FileReader("kunden.csv"));
+			}
+		catch (Exception e) {
+			System.out.println("Fehler beim Lesen der CSV-Datei");
+		}
+	}
 	
 	
 	private static void csvSchreiben() {
@@ -105,6 +115,20 @@ public class Program {
 		}
 	}
 	
+	private static void textDateiLesen() {
+		try {
+			BufferedReader br = new BufferedReader(new FileReader("datei.txt"));
+			String zeile;
+			while((zeile = br.readLine()) != null ) {
+				System.out.println(zeile);
+			}
+		}
+		catch (IOException e) {
+			System.out.println("Datei konnte nicht gelesen werden.");
+		}
+	}
+	
+	
 	
 	private static void textDateiSchreiben() {
 		
@@ -129,7 +153,6 @@ public class Program {
 			
 //		}
 
-	
 		try {
 			// Datenstrom erzeugen, Datei öffnen
 			FileWriter fw = new FileWriter("datei.txt"); 
