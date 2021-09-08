@@ -8,6 +8,7 @@ import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -27,8 +28,28 @@ public class Program {
  		objekteLesen();
  		csvSchreiben();
  		csvLesen();
+ 		fileKlasse();
 		
 	}
+	
+	private static void fileKlasse() {
+		
+		File file = new File("verzeichnis\\dateiname.txt");
+		File dir = new File("verzeichnis");
+		
+		 	try {
+	 		if(dir.mkdir()) {
+	 			file.createNewFile();
+	 		}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println("existiert ja/nein: " + file.exists());
+		System.out.println("ist das eine Datei? " + file.isFile());
+		System.out.println("ist ein Verzeichnis? " + dir.isDirectory());
+	}
+	
 	
 	
 	private static void csvLesen() {
