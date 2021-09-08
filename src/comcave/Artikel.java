@@ -11,8 +11,7 @@ public class Artikel implements Serializable {
 		this.bezeichnung = bezeichnung;
 		this.preis = preis;
 	}
-	
-	
+		
 	public String getBezeichnung() {
 		return bezeichnung;
 	}
@@ -25,9 +24,6 @@ public class Artikel implements Serializable {
 	public double getPreis() {
 		return preis;
 	}
-
-
-
 
 	public void setPreis(double preis) {
 		this.preis = preis;
