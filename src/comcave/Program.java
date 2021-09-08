@@ -3,10 +3,12 @@ package comcave;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.io.BufferedWriter;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
@@ -22,6 +24,18 @@ public class Program {
 		objekteSchreiben();
 	}
 	
+	private static void objekteLesen() {
+		ArrayList<Artikel> liste = null;
+		try {
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream("artikel.com"));
+			liste = (ArrayList<Artikel>)ois.readObject();
+			ois.close();
+		}
+		catch (Exception e) {
+			System.out.println("Kann Artikel Daten nicht einlesen");
+		}
+		
+	}
 	
 	private static void objekteSchreiben() {
 		//Serialisierung
@@ -31,7 +45,7 @@ public class Program {
 		
 		try {
 			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("artikel.com"));
-			oos.writeObject(artikel);
+			oos.writeObject(artikelListe);
 			oos.close();
 		} catch (IOException e) {
 			System.out.println("Datei Fehler");			
