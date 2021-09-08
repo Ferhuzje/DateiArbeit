@@ -56,6 +56,9 @@ public class Program {
 		System.out.println(datei.getAbsolutePath());
 		File datei2 = new File(datei.getAbsolutePath());
 		System.out.println( datei2.getParent() );
+		//Alternative in einer Zeile: 
+		
+		System.out.println(new File(new File("name").getAbsolutePath()).getParent());
 	}
 	
 	
