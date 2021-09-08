@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.RandomAccessFile;
+import java.util.ArrayList;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -25,6 +26,8 @@ public class Program {
 	private static void objekteSchreiben() {
 		//Serialisierung
 		Artikel artikel = new Artikel("IPhone", 1200);
+		ArrayList<Artikel> artikelListe = new ArrayList<Artikel>();
+		artikelListe.add(artikel);
 		
 		try {
 			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("artikel.com"));
