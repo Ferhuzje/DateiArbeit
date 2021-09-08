@@ -1,6 +1,5 @@
 package comcave;
 
-
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -22,6 +21,24 @@ public class Program {
 		binaerDateiSchreiben();		
 		binaerDateiLesen();
 		objekteSchreiben();
+		objekteLesen();
+		csvSchreiben();
+	}
+	
+	
+	
+	
+	
+	private static void csvSchreiben() {
+		try {
+			BufferedWriter bw = new BufferedWriter(new FileWriter("kunden.csv"));
+			bw.write("Mathilde,Mustermann,1234657987\n");
+			bw.write("Maxi,Musterfrau,669741\n");
+			bw.close();
+		}
+		catch (Exception e) {
+			System.out.println("Fehler beim csv schreiben");
+		}
 	}
 	
 	private static void objekteLesen() {
