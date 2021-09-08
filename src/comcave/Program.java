@@ -20,19 +20,30 @@ public class Program {
 
 	public static void main(String[] args) {
 		textDateiSchreiben();
-		textDateiLesen();
-		binaerDateiSchreiben();		
-		binaerDateiLesen();
-		objekteSchreiben();
-		objekteLesen();
-		csvSchreiben();
+	 	textDateiLesen();
+ 		binaerDateiSchreiben();		
+ 		binaerDateiLesen();
+ 		objekteSchreiben();
+ 		objekteLesen();
+ 		csvSchreiben();
+ 		csvLesen();
+		
 	}
 	
 	
 	private static void csvLesen() {
 		try { 
 			BufferedReader br = new BufferedReader(new FileReader("kunden.csv"));
+			String zeile = "";
+			while ( ( zeile = br.readLine()) != null ) {
+				String[] kunden = zeile.split(",");
+				for(String daten : kunden) {
+					System.out.println(daten);
+				}
+				System.out.println("");
 			}
+			br.close();
+		}
 		catch (Exception e) {
 			System.out.println("Fehler beim Lesen der CSV-Datei");
 		}
